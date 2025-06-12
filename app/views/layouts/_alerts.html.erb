@@ -1,0 +1,6 @@
+<% flash.each do |key, message| %>
+  <div class="ui message <%= key == 'notice' ? 'positive' : 'negative'%>" onclick="this.style.display='none'">
+    <i class="close icon"></i>
+    <%= message %>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<%= render 'layouts/alerts' %>
+<h2 class="ui center aligned medium icon header">
+  <i class="circular purple chess rook icon"></i>
+  Say Something
+</h2>
+<div class="ui two column grid">
+  <div class="twelve wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content" style="height: 400px; overflow-y: auto;">
+        <div class="ui feed">
+          <%= render @messages%>
+        </div>
+      </div>
+      <div class="extra content">
+        <%= form_with model: @message, url: message_path, local: true, class: "ui reply form" do |f| %>
+          <div class="field">
+            <div class="ui action input">
+              <%= f.text_field :body, placeholder: "Ingrese su mensaje" %>
+              <%= f.submit "Enviar", class: "ui orange button" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="four wide column">
+    <div class="ui fluid raised card chatbox">
+      <div class="content">
+        <div class="ui inverted vertical menu">
+          <a class="active item">
+            Home
+          </a>
+          <a class="item">
+            Messages
+          </a>
+          <a class="item">
+            Friends
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
