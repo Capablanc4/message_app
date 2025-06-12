@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete 'login', to: 'sessions#destroy'
   post 'message', to: 'messages#create'
   resources :user
+  mount ActionCable.server, at: '/cable'
   #DEFAULT
   get "up" => "rails/health#show", as: :rails_health_check
 end

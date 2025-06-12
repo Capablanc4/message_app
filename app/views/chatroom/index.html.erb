@@ -7,15 +7,15 @@
   <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
       <div class="content" style="height: 400px; overflow-y: auto;">
-        <div class="ui feed">
+        <div class="ui feed" id="message_container">
           <%= render @messages%>
         </div>
       </div>
       <div class="extra content">
-        <%= form_with model: @message, url: message_path, local: true, class: "ui reply form" do |f| %>
+        <%= form_with model: @message, url: message_path, remote: true, class: "ui reply form" do |f| %>
           <div class="field">
             <div class="ui action input">
-              <%= f.text_field :body, placeholder: "Ingrese su mensaje" %>
+              <%= f.text_field :body, placeholder: "Ingrese su mensaje", autocomplete: "off", autofocus: true%>
               <%= f.submit "Enviar", class: "ui orange button" %>
             </div>
           </div>
